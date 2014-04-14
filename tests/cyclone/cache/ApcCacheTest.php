@@ -11,11 +11,14 @@ class ApcCacheTest extends \PHPUnit_Framework_TestCase {
     private $_cache;
 
     public function setUp() {
+        if ( ! extension_loaded('apc'))
+            $this->markTestSkipped('apc not loaded');
+
         $this->_cache = new ApcCache;
         apc_clear_cache('user');
-        if ( ! ini_get('apc.enable_cli')) {
+        if ( ! ini_get('apc.enable_cli'))
             $this->markTestSkipped('APC is not enabled in CLI');
-        }
+        
     }
 
     /**

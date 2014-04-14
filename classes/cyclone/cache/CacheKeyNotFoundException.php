@@ -1,9 +1,9 @@
 <?php
 namespace cyclone\cache;
-use cyclone\Exception;
+use cyclone\CycloneException;
 
 /**
  * @author Bence Erős <crystal@cyclonephp.org>
  * @package cache
  */
-class CacheKeyNotFoundException extends Exception {}
+class CacheKeyNotFoundException extends CycloneException {}
